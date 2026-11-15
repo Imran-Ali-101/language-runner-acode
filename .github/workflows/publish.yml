@@ -1,0 +1,20 @@
+name: Publish Acode Plugin
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'plugin.json' # শুধুমাত্র plugin.json ফাইলে পরিবর্তন হলেই এটি পাবলিশ হবে
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Publish to Acode Store
+        uses: Acode-Foundation/publish-plugin@v1
+        with:
+          api-key: ${{ secrets.ACODE_API_KEY }}
