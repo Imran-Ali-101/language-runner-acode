@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'plugin.json' # শুধুমাত্র plugin.json ফাইলে পরিবর্তন হলেই এটি পাবলিশ হবে
+      - 'plugin.json'
 
 jobs:
   publish:
@@ -14,7 +14,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Create Zip File
+        run: zip -r plugin.zip main.js plugin.json readme.md icon.png changelogs.md
+
       - name: Publish to Acode Store
         uses: Acode-Foundation/publish-plugin@v1
         with:
           api-key: ${{ secrets.ACODE_API_KEY }}
+          plugin-zip: plugin.zip
