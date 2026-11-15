@@ -1,0 +1,14 @@
+{
+  "id": "imran.alllang.runner",
+  "name": "Language Runner",
+  "main": "main.js",
+  "version": "1.1.2",
+  "readme": "readme.md",
+  "icon": "icon.png",
+  "files": [],
+  "author": {
+    "name": "Imran",
+    "github": "Imran-Ali-101"
+  },
+  "changelogs": "changelogs.md"
+}
